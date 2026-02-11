@@ -1,23 +1,8 @@
 // using document for type safety
 import mongoose, { Schema, Document} from "mongoose";
+import { Message, MessageSchema } from "./Message";
 
-export interface Message extends Document {
-    content: String;
-    createdAt: Date;
-}
 
-// this message schema is just gving type safety making our code more safer
-const MessageSchema: Schema<Message> = new Schema ({
-    content: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        required: true,
-        default: Date.now
-    }
-});
 
 export interface User extends Document {
     username: string;
